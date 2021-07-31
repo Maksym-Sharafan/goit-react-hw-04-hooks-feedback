@@ -4,7 +4,7 @@ import styles from './Statistics.module.css';
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
 
-    return total() === 0 ? (
+    return total === 0 ? (
       <Notification message="No feedback given" />
     ) : (
       <>
@@ -20,7 +20,7 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
             Bad:<span className={styles.span__statistic}>{bad}</span>
           </li>
           <li className={styles.statistics__total}>
-            Total:<span className={styles.span__statistic}>{total()}</span>
+            Total:<span className={styles.span__statistic}>{total}</span>
           </li>
           <li className={styles.statistics__percent}>
             Positive feedback:

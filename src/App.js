@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useState, useEffect } from 'react';
 
 import Statistics from './components/Statistics';
 import FeedbackOptions from './components/FeedbackOptions';
@@ -8,41 +8,33 @@ export default function App() {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
+  const [total, setTotal] = useState(0);
 
   const onLeaveFeedback = e => {
     
     switch (e.target.name) {
       case 'good':
-        setGood(Number(good) + 1);
+        setGood(prevState => prevState + 1);
         break;
       case 'neutral':
-        setNeutral(Number(neutral) + 1);
+        setNeutral(prevState => prevState + 1);
         break;
       case 'bad':
-        setBad(Number(bad) + 1);
+        setBad(prevState => prevState + 1);
         break;
       
       default:
         return;
     }
-  }
-
-
-  const objectKeys = () => {
-    let array = [];
-    array.push(good, neutral, bad);
-    return array;
   };
 
-   const countTotalFeedback = () => {
-    const arrayValues = objectKeys();
-    return arrayValues.reduce((item, acc) => {
-      return acc + item;
-    }, 0);
-   };
-  
+  useEffect(() => {
+    const totalFeedback = good + neutral + bad;
+    setTotal(totalFeedback);
+  }, [good, neutral, bad]);
+
+
     const countPositiveFeedbackPercentage = () => {
-    const total = countTotalFeedback();
     const percent = Math.round((good / total) * 100);
     if (isNaN(percent)) return 0;
     return percent;
@@ -60,7 +52,7 @@ export default function App() {
           good={good}
           neutral={neutral}
           bad={bad}
-          total={countTotalFeedback}
+          total={total}
           positivePercentage={countPositiveFeedbackPercentage}
         />
       </Section>
