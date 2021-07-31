@@ -1,0 +1,31 @@
+.statistics__list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.statistics__item {
+  font-size: 30px;
+
+  background-color: turquoise;
+}
+
+.statistics__total {
+  margin-top: 15px;
+  font-size: 30px;
+  background-color: tomato;
+}
+
+.statistics__percent {
+  background-color: rgb(0, 255, 64);
+  font-size: 30px;
+}
+
+.statistics__title {
+  font-size: 35px;
+}
+
+.span__statistic {
+  margin-left: 15px;
+  color: rgb(248, 248, 248);
+  font-weight: 700;
+}

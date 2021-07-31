@@ -1,0 +1,20 @@
+.main_section {
+  padding: 20px;
+  margin-left: 20px;
+  width: 400px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px 12px rgba(8, 9, 9, 0.71);
+}
+
+.main_title {
+  text-align: center;
+  font-size: 40px;
+}
+
+.notification {
+  padding: 10px;
+  text-align: center;
+  font-size: 30px;
+  background-color: rgb(253, 53, 53);
+}
